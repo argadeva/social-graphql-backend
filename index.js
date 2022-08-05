@@ -22,6 +22,10 @@ const main = async () => {
     server: httpServer,
     path: "/graphql",
   });
+
+  app.get("/", function (req, res) {
+    res.send("WORKING!!!");
+  });
   
   const serverCleanup = useServer({ schema }, wsServer);
   

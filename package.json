@@ -8,8 +8,11 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "node",
+    "heroku"
+  ],
+  "author": "argadeva",
   "license": "ISC",
   "dependencies": {
     "@graphql-tools/schema": "^8.5.1",
@@ -27,5 +30,8 @@
   "devDependencies": {
     "dotenv": "^16.0.1",
     "nodemon": "^2.0.19"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
