@@ -8,8 +8,8 @@ const { useServer } = require("graphql-ws/lib/use/ws");
 const { ApolloServer } = require("apollo-server-express");
 
 const mongoose = require('mongoose');
-const typeDefs = require('./graphql/typeDefs');
-const resolvers = require('./resolvers');
+const typeDefs = require('./src/graphql/typeDefs');
+const resolvers = require('./src/resolvers');
 
 const PORT = process.env.PORT || 5000;
 
