@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const { createServer } = require("http");
 const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
@@ -10,6 +9,10 @@ const { ApolloServer } = require("apollo-server-express");
 const mongoose = require('mongoose');
 const typeDefs = require('./src/graphql/typeDefs');
 const resolvers = require('./src/resolvers');
+
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const PORT = process.env.PORT || 5000;
 
