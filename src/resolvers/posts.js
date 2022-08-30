@@ -7,9 +7,9 @@ const pubsub = new PubSub();
 
 module.exports = {
   Query: {
-    async getPosts(){
+    async getPosts(_, { limit }){
       try{
-        const posts = await Post.find().sort({ createdAt: -1 });
+        const posts = await Post.find().sort({ createdAt: -1 }).limit(limit);
         return posts;
       } catch(err) {
         throw new Error(err);
@@ -29,11 +29,14 @@ module.exports = {
     },
   },
   Mutation: {
-    async createPost(_, { body }, context){
+    async createPost(_, { title, shortBody, body, image }, context){
       const user = checkAuth(context);
 
       const newPost = new Post({
+        title,
+        shortBody,
         body,
+        image,
         user: user.id,
         username: user.username,
         createdAt: new Date().toISOString(),
